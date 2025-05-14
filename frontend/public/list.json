@@ -10,49 +10,73 @@
     {
         "id":2,
         "name":"Comedy Book",
-        "title": "A",
-        "price":20,
-        "category":"entertainment",
+        "title": "Jokes",
+        "price":199,
+        "category":"For Sale",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1745386820~exp=1745390420~hmac=aa78db097af78fe407bb0cf086fa38d9baadfa103b4644f0a7327ff85ce6b1c4&w=826"
     },
     {
         "id":3,
         "name":"Music Book",
-        "title": "A",
+        "title": "Hip-Hop",
         "price":0,
-        "category":"Song",
+        "category":"Free",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1745386820~exp=1745390420~hmac=aa78db097af78fe407bb0cf086fa38d9baadfa103b4644f0a7327ff85ce6b1c4&w=826"
     },
     {
         "id":4,
         "name":"Sports Book",
-        "title": "A",
+        "title": "Cricket",
         "price":0,
-        "category":"Cricket",
+        "category":"For Sale",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1745386820~exp=1745390420~hmac=aa78db097af78fe407bb0cf086fa38d9baadfa103b4644f0a7327ff85ce6b1c4&w=826"
     },
     {
         "id":5,
         "name":"Java Book",
-        "title": "A",
-        "price":0,
-        "category":"Free",
+        "title": "Programming",
+        "price":199,
+        "category":"For Sale",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1745386820~exp=1745390420~hmac=aa78db097af78fe407bb0cf086fa38d9baadfa103b4644f0a7327ff85ce6b1c4&w=826"
     },
     {
         "id":6,
         "name":"Computer Book",
-        "title": "A",
-        "price":0, 
-        "category":"Free",
+        "title": "Basic",
+        "price":199, 
+        "category":"For Sale",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1745386820~exp=1745390420~hmac=aa78db097af78fe407bb0cf086fa38d9baadfa103b4644f0a7327ff85ce6b1c4&w=826"
     },
     {
         "id":7,
         "name":"Cooking Book",
-        "title": "A",
+        "title": "Dessert",
         "price":0,
         "category":"Free",
+        "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1745386820~exp=1745390420~hmac=aa78db097af78fe407bb0cf086fa38d9baadfa103b4644f0a7327ff85ce6b1c4&w=826"
+    },
+    {
+        "id":8,
+        "name":"Fantasy Book",
+        "title": "FANTASIA",
+        "price":199,
+        "category":"For Sale",
+        "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1745386820~exp=1745390420~hmac=aa78db097af78fe407bb0cf086fa38d9baadfa103b4644f0a7327ff85ce6b1c4&w=826"
+    },
+    {
+    "id":9,
+        "name":"Mystery Book",
+        "title": "Dr. Strange",
+        "price":199,
+        "category":"For Sale",
+        "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1745386820~exp=1745390420~hmac=aa78db097af78fe407bb0cf086fa38d9baadfa103b4644f0a7327ff85ce6b1c4&w=826"
+    },
+    {
+    "id":10,
+        "name":"Science Book",
+        "title": "Physics",
+        "price":199,
+        "category":"For Sale",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1745386820~exp=1745390420~hmac=aa78db097af78fe407bb0cf086fa38d9baadfa103b4644f0a7327ff85ce6b1c4&w=826"
     }
 ]

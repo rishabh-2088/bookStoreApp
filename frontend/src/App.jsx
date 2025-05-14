@@ -2,9 +2,11 @@ import React from "react";
 import Home from "./home/Home";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Courses from "./courses/Courses";
+import Subscriptions from "./subscriptions/Subscriptions"
+import ContactsUs from "./contactsUs/ContactsUs"
 import Signup from "./components/Signup";
-import ContactUs from "./components/ContactUs";
-import AboutUs from "./components/About";
+
+import Abouts from "./abouts/Abouts";
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/AuthProvider";
 
@@ -19,8 +21,9 @@ function App() {
          <Route path="/Course" element={authUser ? <Courses/> : <Navigate to="/signup" />}
          />
          <Route path="/signup" element={<Signup/>}/>
-         <Route path="/contact" element={<ContactUs />} />
-         <Route path="/about" element={<AboutUs />} />
+         <Route path="/contact" element={<ContactsUs />} />
+         <Route path="/about" element={<Abouts />} />
+         <Route path="/subscription" element={< Subscriptions/>} />
       </Routes>
       <Toaster />
       </div>

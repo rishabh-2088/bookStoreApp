@@ -6,9 +6,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 function Signup() {
-  const location = useLocation()
-  const navigate=useNavigate()
-  const from = location.state?.from?.pathname || "/"
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const {
     register,
     handleSubmit,
@@ -19,32 +20,31 @@ function Signup() {
     const userInfo = {
       fullname: data.fullname,
       email: data.email,
+      phone: data.phone, // ✅ Added phone here
       password: data.password,
-    }
-    await axios.post("http://localhost:4001/user/signup", userInfo)
-    .then((res)=>{
-      console.log(res.data)
-      if(res.data){
-        toast.success("Signup Successfully!");
-        navigate(from, {replace:true});
-       
+      dob: data.dob,
+      genre: data.genre,
+    };
 
+    try {
+      const res = await axios.post("http://localhost:4001/user/signup", userInfo);
+      if (res.data) {
+        toast.success("Signup Successfully!");
+        //localStorage.setItem("Users", JSON.stringify(res.data.user));
+        navigate(from, { replace: true });
       }
-      localStorage.setItem("Users", JSON.stringify(res.data.user));
-    }).catch((err) => {
-      if(err.response) {
-        console.log(err);
-        toast.error("Error:" + err.response.data.message);
+    } catch (err) {
+      if (err.response) {
+        console.error(err);
+        toast.error("Error: " + err.response.data.message);
       }
-    });
-    // Handle signup logic here (e.g., API call)
+    }
   };
 
   return (
     <div className="flex h-screen items-center justify-center bg-gray-100">
       <div className="w-[600px] p-6 bg-white shadow-md rounded-md relative">
         <form onSubmit={handleSubmit(onSubmit)} method="post">
-          {/* Close button to go home */}
           <Link
             to="/"
             className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
@@ -64,7 +64,7 @@ function Signup() {
               {...register("fullname", { required: "Name is required" })}
             />
             {errors.fullname && (
-              <span className="text-sm text-red-500">{errors.name.message}</span>
+              <span className="text-sm text-red-500">{errors.fullname.message}</span>
             )}
           </div>
 
@@ -88,6 +88,27 @@ function Signup() {
             )}
           </div>
 
+          {/* Phone Number */}
+          <div className="mb-4">
+            <label className="block mb-1">Phone Number</label>
+            <input
+              type="tel"
+              placeholder="Enter your phone number"
+              className="w-full px-3 py-2 border rounded-md outline-none"
+              {...register("phone", {
+                required: "Phone number is required",
+                pattern: {
+                  value: /^[0-9]{10,15}$/,
+                  message: "Enter a valid phone number",
+                },
+              })}
+            />
+            {errors.phone && (
+              <span className="text-sm text-red-500">{errors.phone.message}</span>
+            )}
+          </div>
+
+
           {/* Password */}
           <div className="mb-4">
             <label className="block mb-1">Password</label>
@@ -108,7 +129,42 @@ function Signup() {
             )}
           </div>
 
-          {/* Buttons */}
+          {/* Date of Birth */}
+          <div className="mb-4">
+            <label className="block mb-1">Date of Birth</label>
+            <input
+              type="date"
+              className="w-full px-3 py-2 border rounded-md outline-none"
+              {...register("dob", { required: "Date of birth is required" })}
+            />
+            {errors.dob && (
+              <span className="text-sm text-red-500">{errors.dob.message}</span>
+            )}
+          </div>
+
+          {/* Genre */}
+          <div className="mb-4">
+            <label className="block mb-1">Preferred Genre</label>
+            <select
+              className="w-full px-3 py-2 border rounded-md outline-none"
+              {...register("genre", { required: "Please select a genre" })}
+            >
+              <option value="">-- Select Genre --</option>
+              <option value="fiction">Fiction</option>
+              <option value="non-fiction">Non-Fiction</option>
+              <option value="mystery">Mystery</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="biography">Biography</option>
+              <option value="self-help">Self Help</option>
+              <option value="science">Science</option>
+              <option value="romance">Romance</option>
+            </select>
+            {errors.genre && (
+              <span className="text-sm text-red-500">{errors.genre.message}</span>
+            )}
+          </div>
+
+          {/* Signup button */}
           <div className="flex flex-col items-center gap-4 mt-6">
             <button
               type="submit"
@@ -117,7 +173,7 @@ function Signup() {
               Sign Up
             </button>
 
-            <p className="text-sm">
+            <div className="text-sm">
               Already have an account?{" "}
               <button
                 type="button"
@@ -126,23 +182,13 @@ function Signup() {
               >
                 Login
               </button>
-              <Login/>
-            </p>
+            </div>
           </div>
         </form>
       </div>
 
-      {/* DaisyUI Login Modal */}
-      <dialog id="my_modal_3" className="modal">
-        <div className="modal-box">
-          <Login />
-          <div className="modal-action">
-            <form method="dialog">
-              <button className="btn">Close</button>
-            </form>
-          </div>
-        </div>
-      </dialog>
+      {/* Login modal outside the form */}
+      <Login />
     </div>
   );
 }

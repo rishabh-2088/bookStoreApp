@@ -43,13 +43,16 @@ const [authUser, setAuthUser]=useAuth()
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/course">Course</a>
+            <a href="/course">Books</a>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <a href="/contact">ContactUs</a>
           </li>
           <li>
             <a href="/about">About</a>
+          </li>
+          <li>
+            <a href="/subscription">Subscription</a>
           </li>
           </>
     );

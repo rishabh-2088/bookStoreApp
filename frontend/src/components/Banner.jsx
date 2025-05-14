@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import banner from "../../public/Banner.jpg"
 function Banner() {
   return (
@@ -7,8 +7,8 @@ function Banner() {
         <div className="w-full order-2 md:order-1 md:w-1/2 mt-12 md:mt-32">
         <div className='space-y-12'>
             <h1 className='text-4xl font-bold'>
-                Hello, welcome here to learn something{" "}
-                <span className="text-pink-500">new everyday!!!!</span>
+                Hello, welcome to BookStore{" "}
+                <span className="text-pink-500">Here you can read new books everyday!!!!</span>
             </h1>
             <p className='text-xl'>
             Welcome to Your Book Nook
@@ -32,7 +32,7 @@ function Banner() {
         <button className="btn mt-6 btn-secondary">Get Started</button>
         </div>
         <div className="order-1 w-full md:w-1/2">
-        <img src={banner} className="w-92 h-92" alt="" />
+        <img src={banner} className="w-92 h-90" alt="" />
         </div>
     </div>
     </>
