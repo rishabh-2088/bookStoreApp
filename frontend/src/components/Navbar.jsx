@@ -101,6 +101,7 @@ const [authUser, setAuthUser]=useAuth()
       </div>
       <div className="hidden md:block">
       <label className="px-3 py-2 border rounded-md flex items-center gap-2">
+       { /* search box */}
   <input 
    type="text" className="grow outline-none dark:bg-slate-900 dark:text-white"
    placeholder="Search" />

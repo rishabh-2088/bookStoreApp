@@ -3,7 +3,6 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 function Cards({ item }) {
-  // Function to load Razorpay script dynamically
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
       const script = document.createElement("script");
@@ -14,13 +13,23 @@ function Cards({ item }) {
     });
   };
 
-  // Handler for the 'Buy Now' button click
   const handleBuyNow = async () => {
+    // ✅ If Free book — open PDF directly
     if (!item?.price || item.price === 0) {
-      toast.success("🎉 Book purchased successfully!");
+      if (item?.pdf) {
+        const pdfTab = window.open(item.pdf, "_blank");
+        if (!pdfTab) {
+          toast.error("❌ Please allow popups.");
+        } else {
+          toast.success("🎉 Book is free. Opening PDF...");
+        }
+      } else {
+        toast.error("❌ No PDF available.");
+      }
       return;
     }
 
+    // ✅ Paid book flow
     const scriptLoaded = await loadRazorpayScript();
     if (!scriptLoaded) {
       toast.error("❌ Razorpay SDK failed to load.");
@@ -28,9 +37,9 @@ function Cards({ item }) {
     }
 
     try {
-      // Step 1: Create order from backend
+      // Step 1: Create order
       const { data: order } = await axios.post("http://localhost:4001/api/payment/create-order", {
-        amount: Math.round(item.price * 100), // Convert INR to paisa
+        amount: Math.round(item.price * 100),
       });
 
       const options = {
@@ -43,21 +52,31 @@ function Cards({ item }) {
         order_id: order.id,
         handler: async function (response) {
           try {
-            // Step 2: Verify payment on backend
+            // Step 2: Verify payment
             await axios.post("http://localhost:4001/api/payment/verify-payment", {
               razorpay_order_id: order.id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
             });
 
-            toast.success("✅ Payment verified successfully!");
+            toast.success("✅ Payment successful!");
+
+            // ✅ Only now open the PDF
+            if (item?.pdf) {
+              const pdfTab = window.open(item.pdf, "_blank");
+              if (!pdfTab) {
+                toast.error("❌ Please allow popups to open the PDF.");
+              }
+            } else {
+              toast.error("❌ PDF not found after payment.");
+            }
           } catch (error) {
-            console.error("Verification failed:", error);
-            toast.error("❌ Payment verification failed");
+            toast.error("❌ Payment verification failed.");
+            console.error(error);
           }
         },
         prefill: {
-          name: "User Name", // Replace with actual data
+          name: "User Name",
           email: "user@example.com",
         },
         theme: {
@@ -68,8 +87,8 @@ function Cards({ item }) {
       const rzp = new window.Razorpay(options);
       rzp.open();
     } catch (error) {
-      console.error("Payment initiation failed:", error.response?.data || error.message);
-      toast.error("❌ Payment failed. Please try again.");
+      toast.error("❌ Something went wrong.");
+      console.error("Payment error:", error);
     }
   };
 
@@ -86,14 +105,12 @@ function Cards({ item }) {
           </h2>
           <p>{item.title}</p>
           <div className="card-actions justify-between">
-            <div className="badge badge-outline">
-              ₹{Number(item.price).toFixed(2)}
-            </div>
+            <div className="badge badge-outline">₹{Number(item.price).toFixed(2)}</div>
             <div
               onClick={handleBuyNow}
               className="cursor-pointer px-2 py-1 rounded-full border-[2px] hover:bg-blue-500 hover:text-white duration-200"
             >
-              {item.price === 0 ? "Free" : "Buy Now"}
+              {item.price === 0 ? "Download" : "Buy Now"}
             </div>
           </div>
         </div>
