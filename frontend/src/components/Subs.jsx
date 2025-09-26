@@ -21,7 +21,7 @@ function Subs() {
 
     try {
       // Step 1: Create subscription from backend
-      const { data: subscription } = await axios.post("http://localhost:4001/api/payment/create-subscription");
+      const { data: subscription } = await axios.post("https://bookstoreapp-yhvs.onrender.com/api/payment/create-subscription");
 
       const options = {
         key: "rzp_test_RVIhrMAe9UQOHN", // Replace with LIVE key in production
@@ -31,7 +31,7 @@ function Subs() {
         handler: async function (response) {
           try {
             // Step 2: Verify payment
-            const { data: verifyRes } = await axios.post("http://localhost:4001/api/payment/verify-subscription", {
+            const { data: verifyRes } = await axios.post("https://bookstoreapp-yhvs.onrender.com/api/payment/verify-subscription", {
               razorpay_subscription_id: subscription.id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,

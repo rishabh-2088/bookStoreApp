@@ -38,7 +38,7 @@ function Cards({ item }) {
 
     try {
       // Step 1: Create order
-      const { data: order } = await axios.post("http://localhost:4001/api/payment/create-order", {
+      const { data: order } = await axios.post("https://bookstoreapp-yhvs.onrender.com/api/payment/create-order", {
         amount: Math.round(item.price * 100),
       });
 
@@ -53,7 +53,7 @@ function Cards({ item }) {
         handler: async function (response) {
           try {
             // Step 2: Verify payment
-            await axios.post("http://localhost:4001/api/payment/verify-payment", {
+            await axios.post("https://bookstoreapp-yhvs.onrender.com/api/payment/verify-payment", {
               razorpay_order_id: order.id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
