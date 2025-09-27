@@ -35,13 +35,15 @@ It allows users to browse, search, and purchase books with secure payments (Razo
 > Replace these with actual images from your app.
 
 - **Home Page**  
-  ![Home Page](<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/f77a62ea-82f8-4e55-86a7-6d26aee58ad0" />)
+  ![Home Page]
+  <img width="1920" height="1080" alt="Home" src="https://github.com/user-attachments/assets/81006440-5488-486e-9235-9a9c3e0f023a" />
 
 - **Book Listing**  
-  ![Books](<img width="1913" height="1005" alt="Image" src="https://github.com/user-attachments/assets/e1d605d7-75b8-4cff-b217-8eb8ffdee12c" />)
+ <img width="1913" height="1005" alt="books" src="https://github.com/user-attachments/assets/3bb28e4c-1f7b-42d2-9e84-43e615965738" />
 
 - **Payment Checkout**  
-  ![Payment](<img width="1596" height="1040" alt="Image" src="https://github.com/user-attachments/assets/d563b916-b5c4-40cd-b066-8c8cb5e7b9d8" />)
+<img width="1596" height="1040" alt="payment png" src="https://github.com/user-attachments/assets/0e3687b2-3900-42e6-8c11-cad295e789bd" />
+
 
 ---
 
