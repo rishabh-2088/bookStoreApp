@@ -35,13 +35,13 @@ It allows users to browse, search, and purchase books with secure payments (Razo
 > Replace these with actual images from your app.
 
 - **Home Page**  
-  ![Home Page](screenshots/home.png)
+  ![Home Page](<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/f77a62ea-82f8-4e55-86a7-6d26aee58ad0" />)
 
 - **Book Listing**  
-  ![Books](screenshots/books.png)
+  ![Books](<img width="1913" height="1005" alt="Image" src="https://github.com/user-attachments/assets/e1d605d7-75b8-4cff-b217-8eb8ffdee12c" />)
 
 - **Payment Checkout**  
-  ![Payment](screenshots/payment.png)
+  ![Payment](<img width="1596" height="1040" alt="Image" src="https://github.com/user-attachments/assets/d563b916-b5c4-40cd-b066-8c8cb5e7b9d8" />)
 
 ---
 
@@ -135,6 +135,9 @@ POST /api/payment/verify → Verify payment
 
 👨‍💻 Author
 Rishabh Singh
+
+
+
 📧 rishabhs2088@gmail.com
 File structure
 bookStoreApp/
